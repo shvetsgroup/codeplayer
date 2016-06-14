@@ -1,11 +1,7 @@
 CodePlayer is a javascript library which allows playing educational code scenarios in the web browser. Scenarios look
 and feel like videos except that everything is executed over real web editor with a real code.
 
-A picture is worth a thousand words, so here's a demo: http://shvetsgroup.github.com/codeplayer/demo/
-
-This library was created for [www.refactoring.guru](http://refactoring.guru) by @neochief.
-
-If you need a similar library, but simpler, take a look at [CodeMirror Movie](http://emmet.io/blog/codemirror-movie/).
+A picture is worth a thousand words, so [try the demo](http://shvetsgroup.github.io/codeplayer/demo/).
 
 ## Scenarios
 
@@ -17,7 +13,7 @@ By the way, scenarios and interface can be translated and played in other langua
 Scenario is a JSON file with a list of actions. You could craft scenarios by hands, but that quickly becomes too tedious
 job for a non-trivial scenario. That's why I've created an editor, to streamline the scenarios production.
 
-[CodePlayer.tv](http://shvetsgroup.github.com/codeplayer.tv/)
+[CodePlayer.tv](http://shvetsgroup.github.io/codeplayer.tv/)
 
 ## Usage
 
@@ -72,3 +68,9 @@ Here you can pass a simple JSON object to override standard controls captions an
 **merge** : boolean _(default: false)_
 
 Whether or not show the diff viewer after scenario is finished. This option requires [Merge addon for Codemirror](https://codemirror.net/demo/merge.html).
+
+## Acknowledgment
+
+This library was created for [www.refactoring.guru](http://refactoring.guru) by @neochief.
+
+If you need a similar library, but simpler, take a look at [CodeMirror Movie](http://emmet.io/blog/codemirror-movie/).
