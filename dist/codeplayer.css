@@ -1,41 +1,41 @@
 /** Code **/
-.codemirror-player {
+.codeplayer {
   position: relative;
   background-color: #fff;
   min-width: 768px;
   z-index: 2;
   padding-left: 65px;
 }
-.codemirror-player .CodeMirror {
+.codeplayer .CodeMirror {
   font-size: 12px;
   line-height: 18px;
   background: #fefefe;
   padding: 0;
   min-height: 200px;
 }
-.codemirror-player .CodeMirror-scroll {
+.codeplayer .CodeMirror-scroll {
   overflow-y: hidden;
   overflow-x: auto;
 }
-.codemirror-player pre.code.CodeMirror {
+.codeplayer pre.code.CodeMirror {
   height: auto;
 }
-.codemirror-player .CodeMirror-gutters {
+.codeplayer .CodeMirror-gutters {
   border-right: 1px solid #ecf0f1;
 }
-.codemirror-player.idle {
+.codeplayer.idle {
   min-width: 0;
 }
-.codemirror-player pre.code {
+.codeplayer pre.code {
   display: none;
 }
-.codemirror-player .btn-group > .btn {
+.codeplayer .btn-group > .btn {
   padding: 9px 8px;
 }
-.codemirror-player .btn-group > .btn:first-child {
+.codeplayer .btn-group > .btn:first-child {
   border-right: solid 1px #27ad60;
 }
-.codemirror-player .codemirror-player-roadmap {
+.codeplayer .codeplayer-roadmap {
   display: -webkit-flex;
   -webkit-flex-direction: row;
   -webkit-align-items: stretch;
@@ -53,10 +53,10 @@
   margin: 2em 0 0;
   counter-reset: my-badass-counter;
 }
-.codemirror-player .codemirror-player-roadmap:before,
-.codemirror-player .codemirror-player-roadmap:after,
-.codemirror-player .codemirror-player-roadmap .step:before,
-.codemirror-player .codemirror-player-roadmap .step:after {
+.codeplayer .codeplayer-roadmap:before,
+.codeplayer .codeplayer-roadmap:after,
+.codeplayer .codeplayer-roadmap .step:before,
+.codeplayer .codeplayer-roadmap .step:after {
   font-family: FontAwesome;
   text-align: center;
   color: #bdc3c7;
@@ -78,48 +78,48 @@
   transform: scale(1);
   transition: all 1s ease;
 }
-.codemirror-player .codemirror-player-roadmap:before,
-.codemirror-player .codemirror-player-roadmap:after {
+.codeplayer .codeplayer-roadmap:before,
+.codeplayer .codeplayer-roadmap:after {
   content: "\f005";
 }
-.codemirror-player .codemirror-player-roadmap:after {
+.codeplayer .codeplayer-roadmap:after {
   color: #2ecc71;
   border-color: #2ecc71;
   -webkit-transform: rotateX(1170deg);
   transform: rotateX(1170deg);
 }
-.codemirror-player .codemirror-player-roadmap .step:before,
-.codemirror-player .codemirror-player-roadmap .step:after {
+.codeplayer .codeplayer-roadmap .step:before,
+.codeplayer .codeplayer-roadmap .step:after {
   top: -17px;
   left: -15px;
   right: auto;
 }
-.codemirror-player .codemirror-player-roadmap .step:before {
+.codeplayer .codeplayer-roadmap .step:before {
   content: counter(my-badass-counter);
   counter-increment: my-badass-counter;
 }
-.codemirror-player .codemirror-player-roadmap .step:after {
+.codeplayer .codeplayer-roadmap .step:after {
   content: "\f00c";
   color: #2ecc71;
   border-color: #2ecc71;
   -webkit-transform: rotateX(1170deg);
   transform: rotateX(1170deg);
 }
-.codemirror-player .codemirror-player-roadmap .step.active:before {
+.codeplayer .codeplayer-roadmap .step.active:before {
   color: #e74c3c;
   border: solid 1px #e74c3c;
 }
-.codemirror-player .codemirror-player-roadmap.completed:before,
-.codemirror-player .codemirror-player-roadmap .step.completed:before {
+.codeplayer .codeplayer-roadmap.completed:before,
+.codeplayer .codeplayer-roadmap .step.completed:before {
   -webkit-transform: rotateX(1170deg);
   transform: rotateX(1170deg);
 }
-.codemirror-player .codemirror-player-roadmap.completed:after,
-.codemirror-player .codemirror-player-roadmap .step.completed:after {
+.codeplayer .codeplayer-roadmap.completed:after,
+.codeplayer .codeplayer-roadmap .step.completed:after {
   -webkit-transform: rotateX(0deg);
   transform: rotateX(0deg);
 }
-.codemirror-player .codemirror-player-roadmap .step {
+.codeplayer .codeplayer-roadmap .step {
   -webkit-flex: 1 1;
   flex: 1 1;
   position: relative;
@@ -127,15 +127,15 @@
   color: #bdc3c7;
   transition: all 1s ease;
 }
-.codemirror-player .codemirror-player-roadmap .step a {
+.codeplayer .codeplayer-roadmap .step a {
   color: #bdc3c7;
   text-decoration: underline;
 }
-.codemirror-player .codemirror-player-roadmap .step a:hover {
+.codeplayer .codeplayer-roadmap .step a:hover {
   color: #444;
   text-decoration: none;
 }
-.codemirror-player .codemirror-player-roadmap .step .step-content {
+.codeplayer .codeplayer-roadmap .step .step-content {
   padding: 15px 20px;
   background-color: white;
   border-bottom-left-radius: 10px;
@@ -143,7 +143,7 @@
   max-height: 108px;
   overflow: hidden;
 }
-.codemirror-player .codemirror-player-roadmap .step .step-content:after {
+.codeplayer .codeplayer-roadmap .step .step-content:after {
   position: absolute;
   height: 10px;
   bottom: 0;
@@ -163,63 +163,63 @@
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.04) 4%, #ffffff 100%);
   /* W3C */
 }
-.codemirror-player .codemirror-player-roadmap .step.active .step-content {
+.codeplayer .codeplayer-roadmap .step.active .step-content {
   display: block;
 }
-.codemirror-player .codemirror-player-roadmap .step:hover {
+.codeplayer .codeplayer-roadmap .step:hover {
   transition: all 0.5s ease;
 }
-.codemirror-player .codemirror-player-roadmap .step:hover .step-content {
+.codeplayer .codeplayer-roadmap .step:hover .step-content {
   display: block;
   left: 0;
   right: 0;
   z-index: 11;
   max-height: 1000px;
 }
-.codemirror-player .codemirror-player-roadmap .step.active {
+.codeplayer .codeplayer-roadmap .step.active {
   -webkit-flex: 3 1;
   flex: 3 1;
   color: #444;
   border-top: solid 5px #e74c3c;
 }
-.codemirror-player .codemirror-player-roadmap .step.active .step-content {
+.codeplayer .codeplayer-roadmap .step.active .step-content {
   position: relative;
   width: auto;
 }
-.codemirror-player .codemirror-player-roadmap .step.transitioned .step-content {
+.codeplayer .codeplayer-roadmap .step.transitioned .step-content {
   max-height: 1000px;
   transition: all 0.5s ease;
 }
-.codemirror-player .codemirror-player-roadmap .step.completed {
+.codeplayer .codeplayer-roadmap .step.completed {
   border-top: solid 5px #2ecc71;
 }
-.codemirror-player .codemirror-player-roadmap .completed .step-active {
+.codeplayer .codeplayer-roadmap .completed .step-active {
   display: none;
 }
-.codemirror-player .codemirror-player-roadmap.fastForward {
+.codeplayer .codeplayer-roadmap.fastForward {
   transition: none;
 }
-.codemirror-player .codemirror-player-roadmap.fastForward:before,
-.codemirror-player .codemirror-player-roadmap.fastForward:after,
-.codemirror-player .codemirror-player-roadmap.fastForward .step:before,
-.codemirror-player .codemirror-player-roadmap.fastForward .step:after,
-.codemirror-player .codemirror-player-roadmap.fastForward .step,
-.codemirror-player .codemirror-player-roadmap.fastForward .step-content {
+.codeplayer .codeplayer-roadmap.fastForward:before,
+.codeplayer .codeplayer-roadmap.fastForward:after,
+.codeplayer .codeplayer-roadmap.fastForward .step:before,
+.codeplayer .codeplayer-roadmap.fastForward .step:after,
+.codeplayer .codeplayer-roadmap.fastForward .step,
+.codeplayer .codeplayer-roadmap.fastForward .step-content {
   transition: none;
 }
-.codemirror-player.idle .codemirror-player-roadmap .step:hover .step-content {
+.codeplayer.idle .codeplayer-roadmap .step:hover .step-content {
   max-height: 108px !important;
 }
-.codemirror-player .codemirror-player-screen-wrapper {
+.codeplayer .codeplayer-screen-wrapper {
   position: relative;
   margin-left: 65px;
 }
 @media (min-width: 768px) {
-  .codemirror-player .codemirror-player-screen-wrapper {
+  .codeplayer .codeplayer-screen-wrapper {
     margin-left: 0;
   }
 }
-.codemirror-player .codemirror-player-controls {
+.codeplayer .codeplayer-controls {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -229,58 +229,58 @@
   margin-top: 15px;
 }
 @media (min-width: 768px) {
-  .codemirror-player .codemirror-player-controls {
+  .codeplayer .codeplayer-controls {
     margin-top: 0;
   }
 }
-.codemirror-player .codemirror-player-controls .btn {
+.codeplayer .codeplayer-controls .btn {
   font-size: 18px;
   display: block;
   margin-bottom: 5px;
   text-align: center;
 }
-.codemirror-player .codemirror-player-controls .fa-play {
+.codeplayer .codeplayer-controls .fa-play {
   margin: 0 0 0 -1px;
 }
-.codemirror-player .codemirror-player-controls .fa-pause {
+.codeplayer .codeplayer-controls .fa-pause {
   margin: 2px 0 0 -2px;
 }
-.codemirror-player .codemirror-player-controls .codemirror-player-compile {
+.codeplayer .codeplayer-controls .codeplayer-compile {
   position: absolute;
   bottom: 0;
   margin: 0;
   left: 0;
   right: 0;
 }
-.codemirror-player .codemirror-player-controls .title {
+.codeplayer .codeplayer-controls .title {
   display: none;
 }
-.codemirror-player .idle-only {
+.codeplayer .idle-only {
   display: none;
 }
-.codemirror-player.idle .codemirror-player-screen,
-.codemirror-player.idle .codemirror-player-roadmap {
+.codeplayer.idle .codeplayer-screen,
+.codeplayer.idle .codeplayer-roadmap {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   -webkit-filter: grayscale(1) blur(1px);
   filter: alpha(opacity=50);
 }
-.codemirror-player.idle .idle-only {
+.codeplayer.idle .idle-only {
   display: inline-block;
 }
-.codemirror-player.idle .codemirror-player-roadmap {
+.codeplayer.idle .codeplayer-roadmap {
   height: 0px;
   overflow: hidden;
 }
 @media (min-width: 768px) {
-  .codemirror-player.idle .codemirror-player-roadmap {
+  .codeplayer.idle .codeplayer-roadmap {
     height: auto;
     overflow: visible;
   }
 }
-.codemirror-player.idle .codemirror-player-screen-wrapper {
+.codeplayer.idle .codeplayer-screen-wrapper {
   margin-left: 0;
 }
-.codemirror-player.idle .codemirror-player-controls {
+.codeplayer.idle .codeplayer-controls {
   left: 0;
   right: 0;
   width: auto;
@@ -290,13 +290,13 @@
   z-index: 15;
   text-align: center;
 }
-.codemirror-player.idle .codemirror-player-controls .btn {
+.codeplayer.idle .codeplayer-controls .btn {
   display: none;
 }
-.codemirror-player.idle .codemirror-player-controls .hidden {
+.codeplayer.idle .codeplayer-controls .hidden {
   display: none;
 }
-.codemirror-player.idle .codemirror-player-controls .codemirror-player-play {
+.codeplayer.idle .codeplayer-controls .codeplayer-play {
   font-size: 30px;
   padding: 20px;
   display: inline-block;
@@ -304,68 +304,68 @@
   border-radius: 50px;
 }
 @media (min-width: 768px) {
-  .codemirror-player.idle .codemirror-player-controls .codemirror-player-play {
+  .codeplayer.idle .codeplayer-controls .codeplayer-play {
     line-height: 70px;
     font-size: 70px;
     padding: 30px;
   }
 }
-.codemirror-player.idle .codemirror-player-controls .codemirror-player-play .fa-play {
+.codeplayer.idle .codeplayer-controls .codeplayer-play .fa-play {
   margin: 0 0 0 15px;
 }
-.codemirror-player.idle .codemirror-player-controls .codemirror-player-diff,
-.codemirror-player.idle .codemirror-player-controls .codemirror-player-compile {
+.codeplayer.idle .codeplayer-controls .codeplayer-diff,
+.codeplayer.idle .codeplayer-controls .codeplayer-compile {
   display: none;
 }
-.codemirror-player .codemirror-player-screen {
+.codeplayer .codeplayer-screen {
   margin: 0 0 20px;
   border: solid 1px #ecf0f1;
 }
-.codemirror-player .CodeMirror-merge {
+.codeplayer .CodeMirror-merge {
   box-sizing: content-box;
   border: none;
   overflow: hidden;
 }
-.codemirror-player .CodeMirror-merge,
-.codemirror-player .CodeMirror-merge .CodeMirror,
-.codemirror-player .CodeMirror {
+.codeplayer .CodeMirror-merge,
+.codeplayer .CodeMirror-merge .CodeMirror,
+.codeplayer .CodeMirror {
   height: auto;
   min-height: 250px;
 }
-.codemirror-player .CodeMirror-merge .CodeMirror-scroll {
+.codeplayer .CodeMirror-merge .CodeMirror-scroll {
   overflow-y: hidden;
   overflow-x: auto;
 }
-.codemirror-player .CodeMirror-merge .CodeMirror-merge-gap {
+.codeplayer .CodeMirror-merge .CodeMirror-merge-gap {
   position: absolute;
   height: auto;
   top: 0;
   bottom: 0;
   left: 47%;
 }
-.codemirror-player .CodeMirror-merge .CodeMirror-merge-copybuttons-left,
-.codemirror-player .CodeMirror-merge .CodeMirror-merge-copybuttons-right {
+.codeplayer .CodeMirror-merge .CodeMirror-merge-copybuttons-left,
+.codeplayer .CodeMirror-merge .CodeMirror-merge-copybuttons-right {
   display: none;
 }
-.codemirror-player .CodeMirror-merge .CodeMirror-merge-pane {
+.codeplayer .CodeMirror-merge .CodeMirror-merge-pane {
   width: 100%;
   z-index: 10;
   position: relative;
   transition: all 0.5s ease;
 }
-.codemirror-player .CodeMirror-merge .CodeMirror-merge-pane-rightmost {
+.codeplayer .CodeMirror-merge .CodeMirror-merge-pane-rightmost {
   position: absolute;
   z-index: 9;
   width: 47%;
 }
-.codemirror-player.diff .CodeMirror-merge .CodeMirror-merge-pane {
+.codeplayer.diff .CodeMirror-merge .CodeMirror-merge-pane {
   width: 47%;
 }
-.codemirror-player .CodeMirror-cursors,
-.codemirror-player .CodeMirror-cursor {
+.codeplayer .CodeMirror-cursors,
+.codeplayer .CodeMirror-cursor {
   visibility: visible !important;
 }
-.codemirror-player .CodeMirror-cursor {
+.codeplayer .CodeMirror-cursor {
   -webkit-animation: blinking-cursor 1s ease;
   -webkit-animation-iteration-count: infinite;
   animation: blinking-cursor 1s ease;
@@ -401,7 +401,7 @@
 .CodeMirror-merge-pane-rightmost .CodeMirror-merge-l-deleted {
   background: #ffaaaa;
 }
-.CodeMirror-player_typing-shield.active {
+.codeplayer-typing-shield.active {
   position: absolute;
   left: 0;
   top: 0;
@@ -444,7 +444,7 @@
 .tooltip a:hover {
   text-decoration: none;
 }
-.codemirror-player-controls .tooltip-inner {
+.codeplayer-controls .tooltip-inner {
   width: 25em;
 }
 .tooltip {

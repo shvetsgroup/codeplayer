@@ -9,7 +9,7 @@
 @peter-river: #3498db;
 @btn-default-bg: @clouds;
 
-.codemirror-player {
+.codeplayer {
   position: relative;
   background-color: #fff;
   min-width: 768px;
@@ -53,7 +53,7 @@
     border-right: solid 1px mix(@brand-success, black, 85%);
   }
 
-  .codemirror-player-roadmap {
+  .codeplayer-roadmap {
     display: -webkit-flex;
     -webkit-flex-direction: row;
     -webkit-align-items: stretch;
@@ -227,20 +227,20 @@
       }
     }
   }
-  &.idle .codemirror-player-roadmap {
+  &.idle .codeplayer-roadmap {
     .step:hover .step-content {
       max-height: 108px !important;
     }
   }
 
-  .codemirror-player-screen-wrapper {
+  .codeplayer-screen-wrapper {
     position: relative;
     margin-left: 65px;
     @media (min-width: 768px) {
       margin-left: 0;
     }
   }
-  .codemirror-player-controls {
+  .codeplayer-controls {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -268,7 +268,7 @@
       margin: 2px 0 0 -2px;
     }
 
-    .codemirror-player-compile {
+    .codeplayer-compile {
       position: absolute;
       bottom: 0;
       margin: 0;
@@ -285,7 +285,7 @@
     display: none;
   }
   &.idle {
-    .codemirror-player-screen, .codemirror-player-roadmap {
+    .codeplayer-screen, .codeplayer-roadmap {
       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
       -webkit-filter: grayscale(1) blur(1px);
       filter: alpha(opacity=50);
@@ -295,7 +295,7 @@
     }
   }
   &.idle {
-    .codemirror-player-roadmap {
+    .codeplayer-roadmap {
       height:0px;
       overflow:hidden;
       @media (min-width: 768px) {
@@ -303,10 +303,10 @@
         overflow: visible;
       }
     }
-    .codemirror-player-screen-wrapper {
+    .codeplayer-screen-wrapper {
       margin-left: 0;
     }
-    .codemirror-player-controls {
+    .codeplayer-controls {
       left: 0;
       right:0;
       width: auto;
@@ -324,7 +324,7 @@
         display: none;
       }
 
-      .codemirror-player-play {
+      .codeplayer-play {
         font-size: 30px;
         padding: 20px;
         display: inline-block;
@@ -342,13 +342,13 @@
         }
       }
 
-      .codemirror-player-diff, .codemirror-player-compile {
+      .codeplayer-diff, .codeplayer-compile {
         display: none;
       }
     }
   }
 
-  .codemirror-player-screen {
+  .codeplayer-screen {
     margin: 0 0 20px;
     border: solid 1px @clouds;
   }
@@ -435,7 +435,7 @@
   }
 }
 
-.CodeMirror-player_typing-shield.active {
+.codeplayer-typing-shield.active {
   position: absolute;
   left:0;
   top:0;
@@ -486,7 +486,7 @@
   }
 }
 
-.codemirror-player-controls .tooltip-inner {
+.codeplayer-controls .tooltip-inner {
   width: 25em;
 }
 

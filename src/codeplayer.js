@@ -487,11 +487,11 @@
 
     setStep: function(step) {
       this.step = step;
-      var $player = $(this.editor.display.wrapper).closest('.codemirror-player');
-      var $roadmap = $('.codemirror-player-roadmap', $player);
+      var $player = $(this.editor.display.wrapper).closest('.codeplayer');
+      var $roadmap = $('.codeplayer-roadmap', $player);
       var numberOfSteps = $('.step', $roadmap).length;
       $roadmap.addClass('fastForward');
-      if (step == "all" || (_.isNumber(step) && (step == -1 || step > $('.codemirror-player-roadmap .step', $player).length))) {
+      if (step == "all" || (_.isNumber(step) && (step == -1 || step > $('.codeplayer-roadmap .step', $player).length))) {
         $('.step', $roadmap).removeClass('active').removeClass('transitioned').addClass('completed');
         $roadmap.addClass('completed');
       }
@@ -706,7 +706,7 @@
     }
 
     var $element = $(element);
-    $element.empty().addClass('codemirror-player idle');
+    $element.empty().addClass('codeplayer idle');
     $('.tooltip-target').remove();
     $('.tooltip').remove();
 
@@ -714,7 +714,7 @@
 
     // Render steps.
     if (scenario.steps && scenario.steps.length) {
-      var $steps = $('<div class="codemirror-player-roadmap"></div>');
+      var $steps = $('<div class="codeplayer-roadmap"></div>');
       for (var i = 0; i < scenario.steps.length; i++) {
         var step_title = _.isObject(scenario.steps[i]) ? scenario.steps[i][options.locale] : scenario.steps[i];
         var $step = $('<div class="step"><div class="step-content">' + step_title + '</div></div>');
@@ -727,11 +727,11 @@
 
 
     // Render screen.
-    var $wrapper = $('<div class="codemirror-player-screen-wrapper"></div>');
+    var $wrapper = $('<div class="codeplayer-screen-wrapper"></div>');
     $element.append($wrapper);
 
     // Render screen.
-    var $screen = $('<div class="codemirror-player-screen"></div>');
+    var $screen = $('<div class="codeplayer-screen"></div>');
     $wrapper.append($screen);
 
 
@@ -776,7 +776,7 @@
 
     // Create typing protection, unless it's debug mode.
     if (!options.edit_mode) {
-      var $typing_shield = $('<div class="CodeMirror-player_typing-shield"></div>')
+      var $typing_shield = $('<div class="codeplayer-typing-shield"></div>')
       editor.display.wrapper.appendChild($typing_shield[0]);
       player.on('play resume', function() {
         $typing_shield.addClass('active');
@@ -801,7 +801,7 @@
     }
 
     // Create controls.
-    var $controls = $('<div class="codemirror-player-controls"></div>');
+    var $controls = $('<div class="codeplayer-controls"></div>');
     var createButton = function(options) {
       var $button = $('<a class="btn"></a>').addClass(options.buttonClass).attr('title', options.title);
       $button.icon = $('<span class="icon"></span>').addClass(options.iconClass);
@@ -813,7 +813,7 @@
     // Play/Pause.
     var $play_button = createButton({
       title: texts['Play'],
-      buttonClass: 'btn-success btn-embossed codemirror-player-play',
+      buttonClass: 'btn-success btn-embossed codeplayer-play',
       iconClass: 'fa fa-play',
       titleClass: 'idle-only'
     });
@@ -830,7 +830,7 @@
 
     var $back_button = createButton({
       title: texts['Back'],
-      buttonClass: 'btn-success btn-embossed codemirror-player-back',
+      buttonClass: 'btn-success btn-embossed codeplayer-back',
       iconClass: 'fa fa-angle-left'
     });
     $back_button.bind('click', function() {
@@ -840,7 +840,7 @@
 
     var $next_button = createButton({
       title: texts['Next'],
-      buttonClass: 'btn-success btn-embossed codemirror-player-next',
+      buttonClass: 'btn-success btn-embossed codeplayer-next',
       iconClass: 'fa fa-angle-right'
     });
     $next_button.bind('click', function() {
@@ -854,7 +854,7 @@
     if (options.diff) {
       var $diff_button = createButton({
         title: texts['Show difference'],
-        buttonClass: 'btn-default btn-embossed codemirror-player-diff',
+        buttonClass: 'btn-default btn-embossed codeplayer-diff',
         iconClass: 'fa fa-eye'
       });
       $diff_button.bind('click', function() {
@@ -886,7 +886,7 @@
     if (hasCompile) {
       var $compile_button = createButton({
         title: texts['Compile and test'],
-        buttonClass: 'btn-default btn-embossed codemirror-player-compile',
+        buttonClass: 'btn-default btn-embossed codeplayer-compile',
         iconClass: 'fa fa-bug'
       });
       $controls.append($compile_button);

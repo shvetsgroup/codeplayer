@@ -31,7 +31,7 @@
     var that = this;
     
     next = next || _.bind(that.next, that);
-    var $player = $(that.editor.display.wrapper).closest('.codemirror-player');
+    var $player = $(that.editor.display.wrapper).closest('.codeplayer');
     options = _.extend({
       success: true,
       wait: 1000,
@@ -40,7 +40,7 @@
     options.popover.wait = options.popover.wait || "click";
     options.popover.hide = options.popover.hide || "same";
     options.popover.attachment = "element";
-    options.popover.selector = '.codemirror-player-compile';
+    options.popover.selector = '.codeplayer-compile';
     options.popover.placement = "right";
     if (options.text != undefined) {
       options.popover.text = options.text;
@@ -49,31 +49,31 @@
     options.popover.locale = options.locale;
 
     var cleanupFunc = function(){
-      $(".codemirror-player-compile", $player).removeClass('active').removeClass('btn-danger').removeClass('btn-success');
-      $(".codemirror-player-compile span", $player).removeClass('fa-spin').addClass('fa-bug').removeClass('fa-cog');
+      $(".codeplayer-compile", $player).removeClass('active').removeClass('btn-danger').removeClass('btn-success');
+      $(".codeplayer-compile span", $player).removeClass('fa-spin').addClass('fa-bug').removeClass('fa-cog');
     };
     that.cleanupFunc.push(cleanupFunc);
 
     that.hidePopovers();    
-    $(".codemirror-player-compile", $player).addClass('active').addClass('btn-danger');
-    $(".codemirror-player-compile span", $player).addClass('fa-cog').removeClass('fa-bug').addClass('fa-spin');
+    $(".codeplayer-compile", $player).addClass('active').addClass('btn-danger');
+    $(".codeplayer-compile span", $player).addClass('fa-cog').removeClass('fa-bug').addClass('fa-spin');
 
     that.timer(function() {
-      $(".codemirror-player-compile", $player).removeClass('active').removeClass('btn-danger');
-      $(".codemirror-player-compile span", $player).removeClass('fa-spin').addClass('fa-bug').removeClass('fa-cog');
+      $(".codeplayer-compile", $player).removeClass('active').removeClass('btn-danger');
+      $(".codeplayer-compile span", $player).removeClass('fa-spin').addClass('fa-bug').removeClass('fa-cog');
 
       if (options.popover.text) {
 
         if (options.success) {
           options.popover.class += " tooltip-success";
-          $(".codemirror-player-compile", $player).addClass('btn-success');
+          $(".codeplayer-compile", $player).addClass('btn-success');
         }
         else {
           options.popover.class += " tooltip-danger";
-          $(".codemirror-player-compile", $player).addClass('btn-danger');
+          $(".codeplayer-compile", $player).addClass('btn-danger');
         }
         that.getAction('popover')(options.popover, function() {
-          $(".codemirror-player-compile", $player).removeClass('btn-success').removeClass('btn-danger');
+          $(".codeplayer-compile", $player).removeClass('btn-success').removeClass('btn-danger');
           next();
         })
       }
@@ -108,19 +108,19 @@
       locale: 'en'
     }, options || {});
     if (window.locale && options.locale != window.locale) return next();
-    var $player = $(that.editor.display.wrapper).closest('.codemirror-player');
+    var $player = $(that.editor.display.wrapper).closest('.codeplayer');
 
     var next_action = function() {
       that.cleanupFunc.push(function(){
-        $(".codemirror-player-compile", $player).removeClass('blinking');
+        $(".codeplayer-compile", $player).removeClass('blinking');
       });
-      $(".codemirror-player-compile", $player).addClass('blinking');
+      $(".codeplayer-compile", $player).addClass('blinking');
 
       that.getAction('waitForClickOn')({
-        selector: ".codemirror-player-compile, .tooltip",
+        selector: ".codeplayer-compile, .tooltip",
         timeout: options.waitForClick ? 0 : 2000
       }, function() {
-        $(".codemirror-player-compile", $player).removeClass('blinking');
+        $(".codeplayer-compile", $player).removeClass('blinking');
         that.getAction('compile')({
           success: options.success,
           wait: options.wait,
@@ -133,7 +133,7 @@
     if (options.text) {
       var popover_options = {
         attachment: "element",
-        selector: '.codemirror-player-compile',
+        selector: '.codeplayer-compile',
         placement: "right",
         wait: 100,
         hide: "none",
@@ -153,7 +153,7 @@
   pl.prototype.availableActions.readyAndCompile.reversable = true;
   pl.prototype.availableActions.readyAndCompile.saveState = pl.prototype.availableActions.popover.saveState;
   pl.prototype.availableActions.readyAndCompile.revertState = function(action) {
-    $(".codemirror-player-compile").removeClass('blinking');
+    $(".codeplayer-compile").removeClass('blinking');
     pl.prototype.availableActions.popover.revertState.call(this, action);
   }
 }));

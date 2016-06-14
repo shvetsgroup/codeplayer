@@ -27,7 +27,7 @@
    * - `element`: to specific element on page (`selector` parameter).
    * @param {String|Object} [options.popover.pos = 'caret'] If `attachment` is `code`, you should pass 'caret' or
    * CodeMirror.Pos object to specify location of the popover in editor.
-   * @param {String} [options.popover.selector = '.codemirror-player-compile'] If `attachment` is `element`, you should pass a
+   * @param {String} [options.popover.selector = '.codeplayer-compile'] If `attachment` is `element`, you should pass a
    * CSS selector of the target element.
    * @param {String} [options.popover.placement = "right"] From which side to display a popover (`top`, `bottom`,
    * `left`, `right`).
@@ -121,8 +121,8 @@
       if (!$tooltip.length) {
         $tooltip = this.$container.find('.tooltip').last();
       }
-      $tooltip.addClass('codemirror-player-tooltip');
-      var $all_tooltips = $('.tooltip.codemirror-player-tooltip');
+      $tooltip.addClass('codeplayer-tooltip');
+      var $all_tooltips = $('.tooltip.codeplayer-tooltip');
       if ($tooltip.length) {
         $('a', $tooltip).attr('target', '_blank');
 

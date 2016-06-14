@@ -29,8 +29,8 @@
       wait: 1000
     }, options || {});
     options.wait = that.fastForward ? 0 : options.wait;
-    var $player = $(that.editor.display.wrapper).closest('.codemirror-player');
-    var $roadmap = $('.codemirror-player-roadmap', $player);
+    var $player = $(that.editor.display.wrapper).closest('.codeplayer');
+    var $roadmap = $('.codeplayer-roadmap', $player);
 
     that.cleanupFunc.push(function() {
       that.setStep(options.step);
@@ -43,7 +43,7 @@
     }
 
     $roadmap.removeClass('fastForward');
-    if (options.step == "all" || (_.isNumber(options.step) && (options.step == -1 || options.step > $('.codemirror-player-roadmap .step', $player).length))) {
+    if (options.step == "all" || (_.isNumber(options.step) && (options.step == -1 || options.step > $('.codeplayer-roadmap .step', $player).length))) {
       $('.step', $roadmap).removeClass('active').removeClass('transitioned').addClass('completed');
       that.timer(function() {
         $roadmap.addClass('completed');
