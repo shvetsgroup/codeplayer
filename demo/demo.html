@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodePlayer Demo</title>
+
+    <!-- CodeMirror is a single must-have requirement -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.15.2/codemirror.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.15.2/addon/merge/merge.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.15.2/codemirror.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.15.2/addon/search/searchcursor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.15.2/addon/edit/matchbrackets.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.15.2/addon/runmode/runmode.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.15.2/addon/hint/show-hint.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.15.2/mode/clike/clike.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.15.2/mode/php/php.js"></script>
+
+    <!-- Required for diff:true option -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/diff_match_patch/20121119/diff_match_patch.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.15.2/addon/merge/merge.js"></script>
+
+    <!-- Required for button icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <!-- Required for tooltips and general styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- CodePlayer files -->
+    <link rel="stylesheet" href="../dist/codeplayer.min.css">
+    <script src="../dist/codeplayer.min.js"></script>
+</head>
+<body>
+
+<div id="codeplayer" data-scenario="https://codeplayer.tv/demo/demo.json"></div>
+<script>
+    var div = document.getElementById('codeplayer');
+    var scenarioUrl = div.getAttribute('data-scenario');
+    $.getJSON(scenarioUrl, function(data){
+        CodeMirror.player.create(div, data, {
+            diff: true,
+            locale: 'ru',
+            translation: {
+                "Play": "Начать",
+                "Replay": "Начать заново",
+                "Next": "Вперед",
+                "Back": "Назад",
+                "Stop": "Стоп",
+                "Click on these blue things to continue.": "Кликайте на эти синие штуки для продолжения.",
+                "Show difference": "Показать разницу",
+                "Compile and test": "Компиляция и тестирование"
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
