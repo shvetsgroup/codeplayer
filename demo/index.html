@@ -38,7 +38,7 @@
 
 <div class="container">
 
-    <h2><a href="https://github.com/shvetsgroup/codeplayer" class="btn btn-primary brn-large">← CodePlayer on Github</a></h2>
+    <h2><a href="https://github.io/shvetsgroup/codeplayer" class="btn btn-primary brn-large">← CodePlayer on Github</a></h2>
 
     <p>See the page source for code examples.</p>
 
@@ -49,7 +49,7 @@
     <div id="codeplayer"></div>
     <script>
         var div1 = document.getElementById('codeplayer');
-        $.getJSON('http://shvetsgroup.github.com/codeplayer/demo/demo.json', function (data) {
+        $.getJSON('http://shvetsgroup.github.io/codeplayer/demo/demo.json', function (data) {
             CodeMirror.player.create(div1, data);
         });
     </script>
@@ -62,7 +62,7 @@
     <script>
         var div2 = document.getElementById('codeplayer-diff');
         var scenarioUrl = div2.getAttribute('data-scenario');
-        $.getJSON('http://shvetsgroup.github.com/codeplayer/demo/demo.json', function (data) {
+        $.getJSON('http://shvetsgroup.github.io/codeplayer/demo/demo.json', function (data) {
             CodeMirror.player.create(div2, data, {diff: true});
         });
     </script>
@@ -79,7 +79,7 @@
     <script>
         var div3 = document.getElementById('codeplayer-localized');
         var scenarioUrl = div3.getAttribute('data-scenario');
-        $.getJSON('http://shvetsgroup.github.com/codeplayer/demo/demo.json', function (data) {
+        $.getJSON('http://shvetsgroup.github.io/codeplayer/demo/demo.json', function (data) {
             CodeMirror.player.create(div3, data, {
                 diff: true,
                 locale: 'ru',
