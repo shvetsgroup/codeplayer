@@ -40,9 +40,9 @@
     options.popover.wait = options.popover.wait || "click";
     options.popover.hide = options.popover.hide || "same";
     options.popover.attachment = "element";
-    options.popover.selector = '.codeplayer-compile';
+    options.popover.selector = $('.codeplayer-compile', $player);
     options.popover.placement = "right";
-    if (options.text != undefined) {
+    if (options.text !== undefined) {
       options.popover.text = options.text;
     }
     options.popover.text = options.popover.text || ((options.success && options.popover.text == undefined) ? "<b>Все отлично, можем продолжать!</b>" : "");
@@ -133,7 +133,7 @@
     if (options.text) {
       var popover_options = {
         attachment: "element",
-        selector: '.codeplayer-compile',
+        selector: $('.codeplayer-compile', $player),
         placement: "right",
         wait: 100,
         hide: "none",

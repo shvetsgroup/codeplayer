@@ -58,8 +58,18 @@
     // Detect target element.
     var $element;
     var $selection = $('.CodeMirror-selected:first-child', $(that.editor.display.selectionDiv));
+    var $player = $(that.editor.display.wrapper).closest('.codeplayer');
+
     if (options.attachment == 'element') {
-      $element = $(options.selector);
+      if (options.selector instanceof jQuery) {
+        $element = options.selector;
+      }
+      else if (options.selector == ".codeplayer-roadmap") {
+        $element = $(options.selector, $player);
+      }
+      else{
+        $element = $(options.selector);
+      }
     }
     else {
       if (options.attachment == 'code' || that.editor.getSelection() == '' || $selection.offset() == undefined) {

@@ -952,10 +952,10 @@
 }));;(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player', 'codemirror', '../utils/syntax'], factory);
+    define(['underscore', 'jquery', '../codeplayer', 'codemirror', '../utils/syntax'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'), require('codemirror'), require('syntax'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'), require('codemirror'), require('syntax'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player, root.CodeMirror);
@@ -1221,10 +1221,10 @@
 }));;(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player'], factory);
+    define(['underscore', 'jquery', '../codeplayer'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player);
@@ -1285,10 +1285,10 @@
 }));;(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player', 'tooltip'], factory);
+    define(['underscore', 'jquery', '../codeplayer', 'tooltip'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'), require('tooltip'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'), require('tooltip'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player);
@@ -1342,8 +1342,18 @@
     // Detect target element.
     var $element;
     var $selection = $('.CodeMirror-selected:first-child', $(that.editor.display.selectionDiv));
+    var $player = $(that.editor.display.wrapper).closest('.codeplayer');
+
     if (options.attachment == 'element') {
-      $element = $(options.selector);
+      if (options.selector instanceof jQuery) {
+        $element = options.selector;
+      }
+      else if (options.selector == ".codeplayer-roadmap") {
+        $element = $(options.selector, $player);
+      }
+      else{
+        $element = $(options.selector);
+      }
     }
     else {
       if (options.attachment == 'code' || that.editor.getSelection() == '' || $selection.offset() == undefined) {
@@ -1527,10 +1537,10 @@
 }));;(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player', './popover'], factory);
+    define(['underscore', 'jquery', '../codeplayer', './popover'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player);
@@ -1566,9 +1576,9 @@
     options.popover.wait = options.popover.wait || "click";
     options.popover.hide = options.popover.hide || "same";
     options.popover.attachment = "element";
-    options.popover.selector = '.codeplayer-compile';
+    options.popover.selector = $('.codeplayer-compile', $player);
     options.popover.placement = "right";
-    if (options.text != undefined) {
+    if (options.text !== undefined) {
       options.popover.text = options.text;
     }
     options.popover.text = options.popover.text || ((options.success && options.popover.text == undefined) ? "<b>Все отлично, можем продолжать!</b>" : "");
@@ -1659,7 +1669,7 @@
     if (options.text) {
       var popover_options = {
         attachment: "element",
-        selector: '.codeplayer-compile',
+        selector: $('.codeplayer-compile', $player),
         placement: "right",
         wait: 100,
         hide: "none",
@@ -1685,10 +1695,10 @@
 }));;(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player'], factory);
+    define(['underscore', 'jquery', '../codeplayer'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player);
@@ -1773,10 +1783,10 @@
 }));;(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player'], factory);
+    define(['underscore', 'jquery', '../codeplayer'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player);
@@ -1812,10 +1822,10 @@
 }));;(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player', 'codemirror', '../utils/syntax'], factory);
+    define(['underscore', 'jquery', '../codeplayer', 'codemirror', '../utils/syntax'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'), require('codemirror'), require('../utils/syntax'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'), require('codemirror'), require('../utils/syntax'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player, root.CodeMirror);
@@ -1933,10 +1943,10 @@
 }));;(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player'], factory);
+    define(['underscore', 'jquery', '../codeplayer'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player);
@@ -1981,10 +1991,10 @@
 }));;(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player', 'codemirror', '../utils/syntax'], factory);
+    define(['underscore', 'jquery', '../codeplayer', 'codemirror', '../utils/syntax'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'), require('codemirror'), require('../utils/syntax'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'), require('codemirror'), require('../utils/syntax'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player, root.CodeMirror);
@@ -2104,10 +2114,10 @@
 }));;(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player'], factory);
+    define(['underscore', 'jquery', '../codeplayer'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player);
@@ -2174,10 +2184,10 @@
 }));;(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player'], factory);
+    define(['underscore', 'jquery', '../codeplayer'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player);
@@ -2298,10 +2308,10 @@
 }));;(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player'], factory);
+    define(['underscore', 'jquery', '../codeplayer'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player);
