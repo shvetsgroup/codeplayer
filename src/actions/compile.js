@@ -1,10 +1,10 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player', './popover'], factory);
+    define(['underscore', 'jquery', '../codeplayer', './popover'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player);

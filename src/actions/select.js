@@ -1,10 +1,10 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player', 'codemirror', '../utils/syntax'], factory);
+    define(['underscore', 'jquery', '../codeplayer', 'codemirror', '../utils/syntax'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'), require('codemirror'), require('../utils/syntax'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'), require('codemirror'), require('../utils/syntax'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player, root.CodeMirror);

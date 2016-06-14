@@ -1,10 +1,10 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['underscore', 'jquery', '../player', 'tooltip'], factory);
+    define(['underscore', 'jquery', '../codeplayer', 'tooltip'], factory);
   } else if (typeof exports === 'object') {
     // CommonJS
-    factory(require('underscore'), require('jquery'), require('../player'), require('tooltip'));
+    factory(require('underscore'), require('jquery'), require('../codeplayer'), require('tooltip'));
   } else {
     // Browser globals
     factory(root._, (root.jQuery || root.Zepto || root.ender || root.$), root.CodeMirror.player);
