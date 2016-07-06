@@ -12,7 +12,7 @@
 .codeplayer {
   position: relative;
   background-color: #fff;
-  min-width: 768px;
+  min-width: 100px;
   z-index: 2;
   padding-left: 65px;
 
@@ -227,10 +227,7 @@
 
   .codeplayer-screen-wrapper {
     position: relative;
-    margin-left: 65px;
-    @media (min-width: 768px) {
-      margin-left: 0;
-    }
+    margin-left: 0;
   }
   .codeplayer-controls {
     position: absolute;
@@ -239,14 +236,10 @@
     width: 50px;
     padding: 4px 5px 4px 4px;
     margin-right: 0;
-    margin-top: 15px;
+    margin-top: 0;
     background: #f7f7f7;
     border: solid 1px #ecf0f1;
     border-right: 0;
-
-    @media (min-width: 768px) {
-      margin-top: 0;
-    }
 
     .btn-group > .btn {
       padding: 9px 6px;

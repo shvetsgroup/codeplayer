@@ -124,10 +124,10 @@
       if (options.attachment == 'element' && $element.attr('title')) {
         $element.attr('data-orig-title', $element.attr('title')).attr('title', '');
       }
-      $element.tooltip({ title: options.text, placement: options.placement, trigger: 'manual', html: true, container: this.$container }).tooltip("show");
+      $element.tooltip({ title: options.text, placement: options.placement, trigger: 'manual', html: true }).tooltip("show");
       that.tooltip_targets.push($element);
 
-      var $tooltip = $element.next('.tooltip');
+      var $tooltip = $('#' + $element.attr('aria-describedby'));
       if (!$tooltip.length) {
         $tooltip = this.$container.find('.tooltip').last();
       }
@@ -148,7 +148,7 @@
         
         var hideFunc = function() {
           that.tooltip_targets.splice(_.indexOf(that.tooltip_targets, $element), 1);
-          $element.tooltip("destroy");
+          $element.tooltip("dispose");
           if ($element.is('.tooltip-target')) {
             $element.remove();
           }
@@ -241,7 +241,7 @@
     for (var i = this.tooltip_targets.length - 1; i >= 0; i--) {
       $element = this.tooltip_targets[i];
       this.tooltip_targets.splice(i, 1);
-      $element.tooltip("destroy");
+      $element.tooltip("dispose");
       if ($element.is('.tooltip-target')) {
         $element.remove();
       }
