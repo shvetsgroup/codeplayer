@@ -1,13 +1,13 @@
 /** Code **/
 
-@text-color: #444;
-@tooltip-bg: #3498db;
-@brand-success: #2ecc71;
-@brand-danger: #e74c3c;
-@clouds: #ecf0f1;
-@light-gray: #bdc3c7;
-@peter-river: #3498db;
-@btn-default-bg: @clouds;
+$text-color: #444;
+$tooltip-bg: #3498db;
+$brand-success: #2ecc71;
+$brand-danger: #e74c3c;
+$clouds: #ecf0f1;
+$light-gray: #bdc3c7;
+$peter-river: #3498db;
+$btn-default-bg: $clouds;
 
 .codeplayer {
   position: relative;
@@ -34,7 +34,7 @@
   }
 
   .CodeMirror-gutters {
-    border-right: 1px solid @clouds;
+    border-right: 1px solid $clouds;
   }
 
   &.idle {
@@ -57,8 +57,8 @@
     list-style: none;
     font-size: 12px;
     position: relative;
-    border-left: solid 1px @clouds;
-    border-right: solid 1px @clouds;
+    border-left: solid 1px $clouds;
+    border-right: solid 1px $clouds;
     padding: 0;
     margin: 2em 0 0;
     counter-reset: my-badass-counter;
@@ -66,7 +66,7 @@
     &:before, &:after, .step:before, .step:after  {
       font-family: FontAwesome;
       text-align: center;
-      color: @light-gray;
+      color: $light-gray;
       position: absolute;
       top: -13px;
       right: -15px;
@@ -76,7 +76,7 @@
       padding: 5px 4px;
       line-height: 19px;
       background-color: white;
-      border: solid 1px @light-gray;
+      border: solid 1px $light-gray;
       border-radius: 50%;
       z-index: 20;
       -webkit-backface-visibility: hidden;
@@ -91,8 +91,8 @@
     }
 
     &:after {
-      color: @brand-success;
-      border-color: @brand-success;
+      color: $brand-success;
+      border-color: $brand-success;
       -webkit-transform: rotateX(1170deg);
       transform: rotateX(1170deg);
     }
@@ -108,15 +108,15 @@
     }
     .step:after {
       content: "\f00c";
-      color: @brand-success;
-      border-color: @brand-success;
+      color: $brand-success;
+      border-color: $brand-success;
       -webkit-transform: rotateX(1170deg);
       transform: rotateX(1170deg);
     }
 
     .step.active:before {
-      color: @brand-danger;
-      border: solid 1px @brand-danger;
+      color: $brand-danger;
+      border: solid 1px $brand-danger;
     }
 
     &.completed:before, .step.completed:before {
@@ -134,16 +134,16 @@
       -webkit-flex: 1 1;
       flex: 1 1;
       position: relative;
-      border-top: solid 5px @light-gray;
-      color: @light-gray;
+      border-top: solid 5px $light-gray;
+      color: $light-gray;
       transition: all 1s ease;
 
       a {
-        color: @light-gray;
+        color: $light-gray;
         text-decoration: underline;
       }
       a:hover {
-        color: @text-color;
+        color: $text-color;
         text-decoration: none;
       }
 
@@ -188,8 +188,8 @@
       &.active {
         -webkit-flex: 3 1;
         flex: 3 1;
-        color: @text-color;
-        border-top: solid 5px @brand-danger;
+        color: $text-color;
+        border-top: solid 5px $brand-danger;
 
         .step-content {
           position: relative;
@@ -204,7 +204,7 @@
       }
 
       &.completed {
-        border-top: solid 5px @brand-success;
+        border-top: solid 5px $brand-success;
       }
     }
 
@@ -246,7 +246,7 @@
     }
 
     .btn-group > .btn:first-child {
-      border-right: solid 2px mix(@brand-success, black, 85%);
+      border-right: solid 2px mix($brand-success, black, 85%);
     }
 
     .btn {
@@ -262,14 +262,6 @@
     }
     .fa-pause {
       margin: 2px 0 0 -2px;
-    }
-
-    .codeplayer-compile {
-      position: absolute;
-      bottom: 5px;
-      margin: 0;
-      left: 5px;
-      right: 5px;
     }
 
     .title {
@@ -348,7 +340,7 @@
 
   .codeplayer-screen {
     margin: 0 0 20px 50px;
-    border: solid 1px @clouds;
+    border: solid 1px $clouds;
     transition: 1s;
   }
   &.idle .codeplayer-screen {
@@ -411,7 +403,7 @@
 }
 
 .CodeMirror-selected, .CodeMirror-focused .CodeMirror-selected {
-  background: mix(@peter-river, white, 50%);
+  background: mix($peter-river, white, 50%);
 }
 
 .CodeMirror-merge-r-chunk, .CodeMirror-merge-l-chunk,
@@ -495,56 +487,59 @@
 .tooltip {
   font-family: "Helvetica Neue", Helvetica, Arial;
   &.bs-tether-target-attached-bottom .tooltip-arrow {
-    border-bottom-color: @tooltip-bg;
+    border-bottom-color: $tooltip-bg;
   }
   &.bs-tether-target-attached-left .tooltip-arrow {
-    border-left-color: @tooltip-bg;
+    border-left-color: $tooltip-bg;
   }
   &.bs-tether-target-attached-right .tooltip-arrow {
-    border-right-color: @tooltip-bg;
+    border-right-color: $tooltip-bg;
   }
   &.bs-tether-target-attached-top .tooltip-arrow {
-    border-top-color: @tooltip-bg;
+    border-top-color: $tooltip-bg;
   }
   .tooltip-inner {
-    background-color: @tooltip-bg;
+    background-color: $tooltip-bg;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  &.bs-tether-abutted-top.bs-tether-target-attached-bottom {
+    margin-top: 10px;
   }
 }
 
 .tooltip-success {
   &.bs-tether-target-attached-bottom .tooltip-arrow {
-    border-bottom-color: @brand-success;
+    border-bottom-color: $brand-success;
   }
   &.bs-tether-target-attached-left .tooltip-arrow {
-    border-left-color: @brand-success;
+    border-left-color: $brand-success;
   }
   &.bs-tether-target-attached-right .tooltip-arrow {
-    border-right-color: @brand-success;
+    border-right-color: $brand-success;
   }
   &.bs-tether-target-attached-top .tooltip-arrow {
-    border-top-color: @brand-success;
+    border-top-color: $brand-success;
   }
   .tooltip-inner {
-    background-color: @brand-success;
+    background-color: $brand-success;
   }
 }
 
 .tooltip-danger {
   &.bs-tether-target-attached-bottom .tooltip-arrow {
-    border-bottom-color: @brand-danger;
+    border-bottom-color: $brand-danger;
   }
   &.bs-tether-target-attached-left .tooltip-arrow {
-    border-left-color: @brand-danger;
+    border-left-color: $brand-danger;
   }
   &.bs-tether-target-attached-right .tooltip-arrow {
-    border-right-color: @brand-danger;
+    border-right-color: $brand-danger;
   }
   &.bs-tether-target-attached-top .tooltip-arrow {
-    border-top-color: @brand-danger;
+    border-top-color: $brand-danger;
   }
   .tooltip-inner {
-    background-color: @brand-danger;
+    background-color: $brand-danger;
   }
 }
 
@@ -555,22 +550,22 @@
   animation-iteration-count: infinite;
 }
 
-.blinking-bg-danger() {
+@mixin blinking-bg-danger() {
   from {
-    background: @btn-default-bg;
+    background: $btn-default-bg;
   }
   to {
-    background: @brand-danger;
+    background: $brand-danger;
   }
 }
 @-webkit-keyframes blinking-bg-danger {
-  .blinking-bg-danger();
+  @include blinking-bg-danger();
 }
 @keyframes blinking-bg-danger {
-  .blinking-bg-danger();
+  @include blinking-bg-danger();
 }
 
-.blinking-tooltip-text {
+@mixin blinking-tooltip-text {
   -webkit-animation: blinking-text 1s ease;
   -webkit-animation-iteration-count: infinite;
   animation: blinking-text 1s ease;
@@ -595,7 +590,7 @@
   }
 }
 
-.blinking-cursor() {
+@mixin blinking-cursor() {
   0% {
     border-color: black;
   }
@@ -604,8 +599,8 @@
   }
 }
 @-webkit-keyframes blinking-cursor {
-  .blinking-cursor();
+  @include blinking-cursor();
 }
 @keyframes blinking-cursor {
-  .blinking-cursor();
+  @include blinking-cursor();
 }
