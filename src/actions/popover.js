@@ -122,7 +122,7 @@
 
         if ($element != null && $element.length) {
             if (options.attachment == 'element' && $element.attr('title')) {
-                $element.attr('data-orig-title', $element.attr('title')).attr('title', '');
+                $element.attr('data-orig-title', $element.attr('title')).removeAttr('title', '');
             }
             $element.tooltip({
                 title: options.text,
@@ -161,6 +161,8 @@
                 var hideFunc = function () {
                     that.tooltip_targets.splice(_.indexOf(that.tooltip_targets, $element), 1);
                     $element.tooltip("dispose");
+                    // This attribute is set by tooltip lib itself and it messes up compilation tooltip texts.
+                    $element.removeAttr('data-original-title');
                     if ($element.is('.tooltip-target')) {
                         $element.remove();
                     }
@@ -254,6 +256,8 @@
             $element = this.tooltip_targets[i];
             this.tooltip_targets.splice(i, 1);
             $element.tooltip("dispose");
+            // This attribute is set by tooltip lib itself and it messes up compilation tooltip texts.
+            $element.removeAttr('data-original-title');
             if ($element.is('.tooltip-target')) {
                 $element.remove();
             }
