@@ -356,8 +356,9 @@ $btn-default-bg: $clouds;
     min-height: 250px;
   }
   .CodeMirror-merge .CodeMirror-scroll {
-    overflow-y: hidden;
-    overflow-x: auto;
+    overflow-y: hidden !important;
+    overflow-x: auto !important;
+    min-height: 250px;
   }
   .CodeMirror-merge .CodeMirror-merge-gap {
     position: absolute;
