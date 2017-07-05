@@ -250,8 +250,9 @@
     height: auto;
     min-height: 250px; }
   .codeplayer .CodeMirror-merge .CodeMirror-scroll {
-    overflow-y: hidden;
-    overflow-x: auto; }
+    overflow-y: hidden !important;
+    overflow-x: auto !important;
+    min-height: 250px; }
   .codeplayer .CodeMirror-merge .CodeMirror-merge-gap {
     position: absolute;
     height: auto;
