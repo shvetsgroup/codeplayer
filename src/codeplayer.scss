@@ -103,6 +103,7 @@ $btn-default-bg: $clouds;
       right: auto;
     }
     .step:before {
+      font: 16px sans-serif;
       content: counter(my-badass-counter);
       counter-increment: my-badass-counter;
     }
