@@ -107,7 +107,10 @@
       waitForClick: false,
       locale: 'en'
     }, options || {});
-    if (window.locale && options.locale != window.locale) return next();
+
+    if (this.locale && options.locale != this.locale) {
+        return next();
+    }
     var $player = $(that.editor.display.wrapper).closest('.codeplayer');
 
     var next_action = function() {
