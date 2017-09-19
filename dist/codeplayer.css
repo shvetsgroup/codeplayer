@@ -27,10 +27,18 @@
     -webkit-flex-direction: row;
     -webkit-align-items: stretch;
     -webkit-align-content: stretch;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    align-content: stretch;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    -ms-flex-line-pack: stretch;
+        align-content: stretch;
     list-style: none;
     font-size: 12px;
     position: relative;
@@ -72,6 +80,7 @@
       left: -15px;
       right: auto; }
     .codeplayer .codeplayer-roadmap .step:before {
+      font: 16px sans-serif;
       content: counter(my-badass-counter);
       counter-increment: my-badass-counter; }
     .codeplayer .codeplayer-roadmap .step:after {
@@ -90,8 +99,9 @@
       -webkit-transform: rotateX(0deg);
       transform: rotateX(0deg); }
     .codeplayer .codeplayer-roadmap .step {
-      -webkit-flex: 1 1;
-      flex: 1 1;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1;
+              flex: 1 1;
       position: relative;
       border-top: solid 5px #bdc3c7;
       color: #bdc3c7;
@@ -116,15 +126,10 @@
           left: 0;
           right: 0;
           content: "";
-          background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.04) 4%, white 100%);
           /* FF3.6+ */
-          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(4%, rgba(255, 255, 255, 0.04)), color-stop(100%, white));
           /* Chrome,Safari4+ */
-          background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.04) 4%, white 100%);
           /* Chrome10+,Safari5.1+ */
-          background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.04) 4%, white 100%);
           /* Opera 11.10+ */
-          background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.04) 4%, white 100%);
           /* IE10+ */
           background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.04) 4%, white 100%);
           /* W3C */ }
@@ -139,8 +144,9 @@
           z-index: 11;
           max-height: 1000px; }
       .codeplayer .codeplayer-roadmap .step.active {
-        -webkit-flex: 3 1;
-        flex: 3 1;
+        -webkit-box-flex: 3;
+            -ms-flex: 3 1;
+                flex: 3 1;
         color: #444;
         border-top: solid 5px #e74c3c; }
         .codeplayer .codeplayer-roadmap .step.active .step-content {
@@ -278,8 +284,10 @@
   .codeplayer .CodeMirror-cursor {
     -webkit-animation: blinking-cursor 1s ease;
     -webkit-animation-iteration-count: infinite;
-    animation: blinking-cursor 1s ease;
-    animation-iteration-count: infinite; }
+    -webkit-animation: blinking-cursor 1s ease;
+            animation: blinking-cursor 1s ease;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite; }
 
 .CodeMirror-selected, .CodeMirror-focused .CodeMirror-selected {
   background: #9acced; }
@@ -300,6 +308,7 @@
   background: #fdd;
   border-bottom-color: #fdd;
   border-top-color: #fdd; }
+
 .CodeMirror-merge-pane-rightmost .CodeMirror-merge-r-deleted, .CodeMirror-merge-pane-rightmost .CodeMirror-merge-l-deleted {
   background: #ffaaaa; }
 
@@ -357,61 +366,74 @@
 
 .tooltip-success.bs-tether-target-attached-bottom .tooltip-arrow {
   border-bottom-color: #2ecc71; }
+
 .tooltip-success.bs-tether-target-attached-left .tooltip-arrow {
   border-left-color: #2ecc71; }
+
 .tooltip-success.bs-tether-target-attached-right .tooltip-arrow {
   border-right-color: #2ecc71; }
+
 .tooltip-success.bs-tether-target-attached-top .tooltip-arrow {
   border-top-color: #2ecc71; }
+
 .tooltip-success .tooltip-inner {
   background-color: #2ecc71; }
 
 .tooltip-danger.bs-tether-target-attached-bottom .tooltip-arrow {
   border-bottom-color: #e74c3c; }
+
 .tooltip-danger.bs-tether-target-attached-left .tooltip-arrow {
   border-left-color: #e74c3c; }
+
 .tooltip-danger.bs-tether-target-attached-right .tooltip-arrow {
   border-right-color: #e74c3c; }
+
 .tooltip-danger.bs-tether-target-attached-top .tooltip-arrow {
   border-top-color: #e74c3c; }
+
 .tooltip-danger .tooltip-inner {
   background-color: #e74c3c; }
 
 .blinking {
   -webkit-animation: blinking-bg-danger 1s ease;
   -webkit-animation-iteration-count: infinite;
-  animation: blinking-bg-danger 1s ease;
-  animation-iteration-count: infinite; }
+  -webkit-animation: blinking-bg-danger 1s ease;
+          animation: blinking-bg-danger 1s ease;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite; }
 
 @-webkit-keyframes blinking-bg-danger {
   from {
     background: #ecf0f1; }
   to {
     background: #e74c3c; } }
+
 @keyframes blinking-bg-danger {
   from {
     background: #ecf0f1; }
   to {
     background: #e74c3c; } }
+
 @-webkit-keyframes blinking-text {
   0% {
     opacity: 1; }
   100% {
     opacity: 0.6; } }
+
 @keyframes blinking-text {
   0% {
     opacity: 1; }
   100% {
     opacity: 0.6; } }
+
 @-webkit-keyframes blinking-cursor {
   0% {
     border-color: black; }
   100% {
     border-color: white; } }
+
 @keyframes blinking-cursor {
   0% {
     border-color: black; }
   100% {
     border-color: white; } }
-
-/*# sourceMappingURL=codeplayer.css.map */

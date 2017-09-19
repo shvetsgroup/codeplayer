@@ -865,6 +865,7 @@
         setTimeout(function() {
           editor.refresh();
           diff.right.orig.refresh();
+          editor.display.scrollbars.setScrollLeft(0);
         }, 1000);
       });
       $controls.append($diff_button);
