@@ -803,7 +803,7 @@
     // Create controls.
     var $controls = $('<div class="codeplayer-controls"></div>');
     var createButton = function(options) {
-      var $button = $('<a class="btn"></a>').addClass(options.buttonClass).attr('title', options.title);
+      var $button = $('<button type="button" class="btn"></button>').addClass(options.buttonClass).attr('title', options.title);
       $button.icon = $('<span class="icon"></span>').addClass(options.iconClass);
       $button.title = $('<span class="title"></span>').addClass(options.titleClass).html(options.title);
       $button.append($button.icon).append($button.title);
