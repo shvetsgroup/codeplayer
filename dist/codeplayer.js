@@ -740,33 +740,35 @@
     options.mode = options.mode || '';
     options.edit_mode = options.edit_mode || false;
 
-    var editor;
+    var default_options, editor;
     if (options.diff) {
-      var diff = CodeMirror.MergeView($screen[0], {
-        value: scenario.code,
-        origRight: scenario.code,
-        lineNumbers: true,
-        mode: options.mode,
-        showDifferences: false,
-        viewportMargin: Infinity,
-        readOnly: !options.edit_mode,
-        dragDrop: options.edit_mode,
-        autofocus: false
-      });
+      default_options = {
+          value: scenario.code,
+          origRight: scenario.code,
+          lineNumbers: true,
+          showDifferences: false,
+          viewportMargin: Infinity,
+          readOnly: !options.edit_mode,
+          dragDrop: options.edit_mode,
+          autofocus: false,
+          inputStyle: "textarea"
+      };
+      var diff = CodeMirror.MergeView($screen[0], _.extend(default_options, options));
       diff.right.orig.setOption("lineNumbers", false);
       editor = diff.edit;
       editor.diff = diff;
     }
     else {
-      editor = CodeMirror($screen[0], {
-        value: scenario.code,
-        lineNumbers: true,
-        mode: options.mode,
-        viewportMargin: Infinity,
-        readOnly: !options.edit_mode,
-        dragDrop: options.edit_mode,
-        autofocus: false
-      });
+        default_options = {
+            value: scenario.code,
+            lineNumbers: true,
+            viewportMargin: Infinity,
+            readOnly: !options.edit_mode,
+            dragDrop: options.edit_mode,
+            autofocus: false,
+            inputStyle: "textarea"
+        };
+      editor = CodeMirror($screen[0], _.extend(default_options, options));
     }
     $screen.data('CodeMirror', editor);
 
@@ -1062,11 +1064,11 @@
       }
       result = $.extend({}, region);
 
-      var parCur = editor.getSearchCursor('(', result.start, true);
+      var parCur = editor.getSearchCursor('(', result.start, {caseFold: true, multiline: false});
       if (parCur.findPrevious()) {
         result.parameters = CodeMirror.Pos(parCur.from().line, parCur.from().ch + 1);
       }
-      var parCur = editor.getSearchCursor(')', result.start, true);
+      var parCur = editor.getSearchCursor(')', result.start, {caseFold: true, multiline: false});
       if (parCur.findPrevious()) {
         result["parameters end"] = parCur.from();
       }
@@ -1080,7 +1082,7 @@
         case 'super':
         case 'interface':
           var res = {};
-          var signatureParser = editor.getSearchCursor(RegExp(locationData.regexp, 'i'), result.start, true);
+          var signatureParser = editor.getSearchCursor(RegExp(locationData.regexp, 'i'), result.start, {caseFold: true, multiline: false});
           if (signatureParser.findPrevious()) {
             if (locationData.type == 'class') {
               var index = 1;
@@ -1948,7 +1950,7 @@
 
     var result = $.extend({}, region);
     var query = text.replace(RegExp('\\|\\|\\|', 'g'), '');
-    var textCur = editor.getSearchCursor(query, result.anchor, true);
+    var textCur = editor.getSearchCursor(query, result.anchor, {caseFold: true, multiline: false});
     if (!textCur.findNext() || (CodeMirror.cmpPos(textCur.to(), result.head) > 0)) {
       var lc = location ? 'method/class "' + location + '" of the ' : '';
       throw 'Text can not be found in ' + lc + ' source text. Searched for:\n```\n' + query + '\n```\n\n...inside:\n```\n' + editor.doc.getRange(result.anchor, result.head) + '\n```';
@@ -2060,7 +2062,7 @@
       }
       if (options.text) {
         var query = options.text.replace(/\|\|\|/g, '');
-        var cur = that.editor.getSearchCursor(query, location.anchor, true);
+        var cur = that.editor.getSearchCursor(query, location.anchor, {caseFold: true, multiline: false});
         var i = 1;
         while (cur.findNext()) {
           if (location.head && CodeMirror.cmpPos(cur.to(), location.head) > 0) break;
