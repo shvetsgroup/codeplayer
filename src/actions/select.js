@@ -50,7 +50,7 @@
       }
       if (options.text) {
         var query = options.text.replace(/\|\|\|/g, '');
-        var cur = that.editor.getSearchCursor(query, location.anchor, true);
+        var cur = that.editor.getSearchCursor(query, location.anchor, {caseFold: true, multiline: false});
         var i = 1;
         while (cur.findNext()) {
           if (location.head && CodeMirror.cmpPos(cur.to(), location.head) > 0) break;

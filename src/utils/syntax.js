@@ -110,11 +110,11 @@
       }
       result = $.extend({}, region);
 
-      var parCur = editor.getSearchCursor('(', result.start, true);
+      var parCur = editor.getSearchCursor('(', result.start, {caseFold: true, multiline: false});
       if (parCur.findPrevious()) {
         result.parameters = CodeMirror.Pos(parCur.from().line, parCur.from().ch + 1);
       }
-      var parCur = editor.getSearchCursor(')', result.start, true);
+      var parCur = editor.getSearchCursor(')', result.start, {caseFold: true, multiline: false});
       if (parCur.findPrevious()) {
         result["parameters end"] = parCur.from();
       }
@@ -128,7 +128,7 @@
         case 'super':
         case 'interface':
           var res = {};
-          var signatureParser = editor.getSearchCursor(RegExp(locationData.regexp, 'i'), result.start, true);
+          var signatureParser = editor.getSearchCursor(RegExp(locationData.regexp, 'i'), result.start, {caseFold: true, multiline: false});
           if (signatureParser.findPrevious()) {
             if (locationData.type == 'class') {
               var index = 1;

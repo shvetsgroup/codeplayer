@@ -107,7 +107,7 @@
 
     var result = $.extend({}, region);
     var query = text.replace(RegExp('\\|\\|\\|', 'g'), '');
-    var textCur = editor.getSearchCursor(query, result.anchor, true);
+    var textCur = editor.getSearchCursor(query, result.anchor, {caseFold: true, multiline: false});
     if (!textCur.findNext() || (CodeMirror.cmpPos(textCur.to(), result.head) > 0)) {
       var lc = location ? 'method/class "' + location + '" of the ' : '';
       throw 'Text can not be found in ' + lc + ' source text. Searched for:\n```\n' + query + '\n```\n\n...inside:\n```\n' + editor.doc.getRange(result.anchor, result.head) + '\n```';
