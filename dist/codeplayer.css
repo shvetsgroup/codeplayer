@@ -281,6 +281,9 @@
     width: 47%; }
   .codeplayer.diff .CodeMirror-merge .CodeMirror-merge-pane {
     width: 47%; }
+  .codeplayer.diff .CodeMirror-merge {
+    overflow-y: auto !important;
+    overflow-x: hidden !important; }
   .codeplayer .CodeMirror-cursors, .codeplayer .CodeMirror-cursor {
     visibility: visible !important; }
   .codeplayer .CodeMirror-cursor {

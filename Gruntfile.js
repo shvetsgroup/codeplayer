@@ -1,8 +1,12 @@
 module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
+    const sass = require('node-sass');
 
     grunt.config.merge({
         sass: {
+            options: {
+                implementation: sass,
+            },
             compile: {
                 files: {"dist/codeplayer.css": "src/codeplayer.scss"}
             }
@@ -29,30 +33,6 @@ module.exports = function (grunt) {
             }
         },
 
-        concat: {
-            options: {
-                separator: ';'
-            },
-            dist: {
-                src: [
-                    'src/codeplayer.js',
-                    'src/utils/syntax.js',
-                    'src/actions/class.js',
-                    'src/actions/popover.js',
-                    'src/actions/compile.js',
-                    'src/actions/indent.js',
-                    'src/actions/jumpTo.js',
-                    'src/actions/moveTo.js',
-                    'src/actions/run.js',
-                    'src/actions/select.js',
-                    'src/actions/setStep.js',
-                    'src/actions/type.js',
-                    'src/actions/wait.js'
-                ],
-                dest: 'dist/codeplayer.js'
-            }
-        },
-
         uglify: {
             options: {
                 mangle: true,
@@ -63,12 +43,27 @@ module.exports = function (grunt) {
             compress: {
                 files: [
                     {
-                        src: 'dist/codeplayer.js', dest: 'dist/codeplayer.min.js'
+                        src: [
+                            'src/codeplayer.js',
+                            'src/utils/syntax.js',
+                            'src/actions/class.js',
+                            'src/actions/popover.js',
+                            'src/actions/compile.js',
+                            'src/actions/indent.js',
+                            'src/actions/jumpTo.js',
+                            'src/actions/moveTo.js',
+                            'src/actions/run.js',
+                            'src/actions/select.js',
+                            'src/actions/setStep.js',
+                            'src/actions/type.js',
+                            'src/actions/wait.js'
+                        ],
+                        dest: 'dist/codeplayer.min.js'
                     }
                 ]
             }
         }
     });
 
-    grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'concat', 'uglify']);
+    grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'uglify']);
 };

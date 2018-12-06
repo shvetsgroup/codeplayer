@@ -394,6 +394,10 @@ $btn-default-bg: $clouds;
     .CodeMirror-merge .CodeMirror-merge-pane {
       width: 47%;
     }
+    .CodeMirror-merge {
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+    }
   }
 
   .CodeMirror-cursors, .CodeMirror-cursor {
