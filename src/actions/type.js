@@ -36,6 +36,8 @@
       that.editor.setCursor(that.makePos(options.pos));
     }
 
+    options.text = options.text || '';
+
     var chars = options.text.split('');
 
     function printChar() {
@@ -55,6 +57,7 @@
 
     function printAll() {
       var word = '';
+      options.text = options.text || '';
       var chars = options.text.split('');
       do {
         var ch = chars.length ? chars.shift() : '';
