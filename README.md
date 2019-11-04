@@ -10,10 +10,6 @@ auto-played or triggered by user.
 
 By the way, scenarios and interface can be translated and played in other languages.
 
-Scenario is a JSON file with a list of actions. You could craft scenarios by hands, but that quickly becomes too tedious
-job for a non-trivial scenario. That's why I've created an editor, to streamline the scenarios production.
-
-[CodePlayer.tv](http://shvetsgroup.github.io/codeplayer.tv/)
 
 ## Usage
 
